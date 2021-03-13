@@ -46,14 +46,14 @@ namespace Business.MarsRovers
 				// Validate starting positions
 				foreach (var rover in rovers)
 				{
-					PositionValidator.ValidatePosition(rover.Value, rover.Value.CurrentPosition, rovers, model.HorizontalSize, model.VerticalSize, true);
+					PositionValidator.ValidatePosition(rover.Value, rover.Value.CurrentPosition, rovers, model.PlateauX, model.PlateauY, true);
 				}
 
 				// ProcessRovers
 				var deployedRovers = rovers.Where(x => x.Value.Deployed).ToDictionary(x => x.Key, x => x.Value); ;
 				foreach (var rover in deployedRovers)
 				{
-					ProcessRoverCommands(rover.Value, deployedRovers, model.HorizontalSize, model.VerticalSize);
+					ProcessRoverCommands(rover.Value, deployedRovers, model.PlateauX, model.PlateauY);
 				}
 
 				// Map results
@@ -69,7 +69,7 @@ namespace Business.MarsRovers
 			return result;
 		}
 
-		private MarsRoversResource MapRoversToResource(Dictionary<int, Rover> rovers)
+		internal MarsRoversResource MapRoversToResource(Dictionary<int, Rover> rovers)
 		{
 			var result = new MarsRoversResource();
 			foreach (var rover in rovers)
@@ -87,7 +87,7 @@ namespace Business.MarsRovers
 			return result;
 		}
 
-		private void ProcessRoverCommands(Rover rover, Dictionary<int, Rover> rovers, int horizontalSize, int verticalSize)
+		internal void ProcessRoverCommands(Rover rover, Dictionary<int, Rover> rovers, int horizontalSize, int verticalSize)
 		{
 			var commandFactory = new CommandFactory();
 
@@ -112,7 +112,7 @@ namespace Business.MarsRovers
 			rover.Processed = true;
 		}
 
-		private Rover InitializeRover(int index, RoverProgramModel model, List<string> directions, List<string> commands)
+		internal Rover InitializeRover(int index, RoverProgramModel model, List<string> directions, List<string> commands)
 		{
 			var rover = new Rover()
 			{
@@ -123,11 +123,11 @@ namespace Business.MarsRovers
 			{
 				X = model.InitialX,
 				Y = model.InitialY,
-				Direction = DirectionParser.GetDirection(model.InitialDirection, directions)
+				Direction = DirectionParser.GetDirection(model.InitialDirection.ToUpper(), directions)
 			};
 
 			rover.CurrentPosition = roverPosition;
-			rover.Commands = CommandParser.GetCommands(model.Commands, commands);
+			rover.Commands = CommandParser.GetCommands(model.Commands.ToUpper(), commands);
 
 			return rover;
 		}

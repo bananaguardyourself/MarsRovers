@@ -12,7 +12,7 @@ namespace Business.MarsRovers.Parsers
 	{
 		public static RoverCommand GetCommand(string textCommand, List<string> commands)
 		{
-			if (!commands.Contains(textCommand))
+			if (!commands.Contains(textCommand.ToUpper()))
 			{
 				throw new MarsRoversValidationException("CommandParser", $"Invalid rover command {textCommand}");
 			}

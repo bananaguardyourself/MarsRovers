@@ -11,7 +11,7 @@ namespace Business.MarsRovers.Parsers
 	{
 		public static Direction GetDirection(string textDirection, List<string> directions)
 		{
-			if (!directions.Contains(textDirection))
+			if (!directions.Contains(textDirection.ToUpper()))
 			{
 				throw new MarsRoversValidationException("DirectionParser", $"Invalid rover direction {textDirection}");
 			}

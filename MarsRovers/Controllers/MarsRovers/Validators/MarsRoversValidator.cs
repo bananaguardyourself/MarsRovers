@@ -12,10 +12,10 @@ namespace MarsRovers.Controllers.MarsRovers.Validators
 	{
 		public MarsRoversValidator()
 		{			
-			RuleFor(p => p.VerticalSize)
+			RuleFor(p => p.PlateauY)
 				.FieldGreaterThanOrEqualTo(0);
 
-			RuleFor(p => p.HorizontalSize)
+			RuleFor(p => p.PlateauX)
 				.FieldGreaterThanOrEqualTo(0);
 
 			RuleForEach(p => p.Rovers).SetValidator(new RoverProgramValidator());
