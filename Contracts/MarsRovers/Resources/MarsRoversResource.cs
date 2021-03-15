@@ -6,6 +6,6 @@ namespace Contracts.MarsRovers.Resources
 {
 	public class MarsRoversResource
 	{
-		public List<RoverPositionResource> RoverPostitions { get; set; } = new List<RoverPositionResource>();		
+		public List<RoverPositionResource> RoverPositions { get; set; } = new List<RoverPositionResource>();		
 	}
 }

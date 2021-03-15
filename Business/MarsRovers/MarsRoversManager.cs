@@ -74,7 +74,7 @@ namespace Business.MarsRovers
 			var result = new MarsRoversResource();
 			foreach (var rover in rovers)
 			{
-				result.RoverPostitions.Add(new RoverPositionResource()
+				result.RoverPositions.Add(new RoverPositionResource()
 				{
 					Direction = rover.Value.CurrentPosition.Direction.GetEnumDescription(),
 					PositionX = rover.Value.CurrentPosition.X,

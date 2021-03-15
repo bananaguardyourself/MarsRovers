@@ -47,19 +47,19 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(2, result.RoverPostitions.Count);
+			Assert.AreEqual(2, result.RoverPositions.Count);
 
-			Assert.IsTrue(result.RoverPostitions[0].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[0].StatusMessage));
-			Assert.AreEqual(1, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(3, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("N", result.RoverPostitions[0].Direction);
+			Assert.IsTrue(result.RoverPositions[0].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[0].StatusMessage));
+			Assert.AreEqual(1, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(3, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("N", result.RoverPositions[0].Direction);
 
-			Assert.IsTrue(result.RoverPostitions[1].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[1].StatusMessage));
-			Assert.AreEqual(5, result.RoverPostitions[1].PositionX);
-			Assert.AreEqual(1, result.RoverPostitions[1].PositionY);
-			Assert.AreEqual("E", result.RoverPostitions[1].Direction);
+			Assert.IsTrue(result.RoverPositions[1].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[1].StatusMessage));
+			Assert.AreEqual(5, result.RoverPositions[1].PositionX);
+			Assert.AreEqual(1, result.RoverPositions[1].PositionY);
+			Assert.AreEqual("E", result.RoverPositions[1].Direction);
 		}
 
 		[TestMethod]
@@ -109,31 +109,31 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(4, result.RoverPostitions.Count);
+			Assert.AreEqual(4, result.RoverPositions.Count);
 
-			Assert.IsFalse(result.RoverPostitions[0].Success);
-			Assert.AreEqual("Rover can't be deployed because the position 4, 2 is out of plateau!", result.RoverPostitions[0].StatusMessage);
-			Assert.AreEqual(4, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(2, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("N", result.RoverPostitions[0].Direction);
+			Assert.IsFalse(result.RoverPositions[0].Success);
+			Assert.AreEqual("Rover can't be deployed because the position 4, 2 is out of plateau!", result.RoverPositions[0].StatusMessage);
+			Assert.AreEqual(4, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(2, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("N", result.RoverPositions[0].Direction);
 
-			Assert.IsTrue(result.RoverPostitions[1].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[1].StatusMessage));
-			Assert.AreEqual(2, result.RoverPostitions[1].PositionX);
-			Assert.AreEqual(2, result.RoverPostitions[1].PositionY);
-			Assert.AreEqual("S", result.RoverPostitions[1].Direction);
+			Assert.IsTrue(result.RoverPositions[1].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[1].StatusMessage));
+			Assert.AreEqual(2, result.RoverPositions[1].PositionX);
+			Assert.AreEqual(2, result.RoverPositions[1].PositionY);
+			Assert.AreEqual("S", result.RoverPositions[1].Direction);
 
-			Assert.IsFalse(result.RoverPostitions[2].Success);
-			Assert.AreEqual("Rover can't be deployed because the position 2, 2 occupied by other rover!", result.RoverPostitions[2].StatusMessage);
-			Assert.AreEqual(2, result.RoverPostitions[2].PositionX);
-			Assert.AreEqual(2, result.RoverPostitions[2].PositionY);
-			Assert.AreEqual("E", result.RoverPostitions[2].Direction);
+			Assert.IsFalse(result.RoverPositions[2].Success);
+			Assert.AreEqual("Rover can't be deployed because the position 2, 2 occupied by other rover!", result.RoverPositions[2].StatusMessage);
+			Assert.AreEqual(2, result.RoverPositions[2].PositionX);
+			Assert.AreEqual(2, result.RoverPositions[2].PositionY);
+			Assert.AreEqual("E", result.RoverPositions[2].Direction);
 
-			Assert.IsTrue(result.RoverPostitions[3].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[3].StatusMessage));
-			Assert.AreEqual(3, result.RoverPostitions[3].PositionX);
-			Assert.AreEqual(3, result.RoverPostitions[3].PositionY);
-			Assert.AreEqual("E", result.RoverPostitions[3].Direction);
+			Assert.IsTrue(result.RoverPositions[3].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[3].StatusMessage));
+			Assert.AreEqual(3, result.RoverPositions[3].PositionX);
+			Assert.AreEqual(3, result.RoverPositions[3].PositionY);
+			Assert.AreEqual("E", result.RoverPositions[3].Direction);
 		}
 
 		[TestMethod]
@@ -169,19 +169,19 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(2, result.RoverPostitions.Count);
+			Assert.AreEqual(2, result.RoverPositions.Count);
 
-			Assert.IsFalse(result.RoverPostitions[0].Success);
-			Assert.AreEqual("Rover can't move further because the position 5, 11 is out of plateau!", result.RoverPostitions[0].StatusMessage);
-			Assert.AreEqual(5, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(10, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("N", result.RoverPostitions[0].Direction);
+			Assert.IsFalse(result.RoverPositions[0].Success);
+			Assert.AreEqual("Rover can't move further because the position 5, 11 is out of plateau!", result.RoverPositions[0].StatusMessage);
+			Assert.AreEqual(5, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(10, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("N", result.RoverPositions[0].Direction);
 
-			Assert.IsFalse(result.RoverPostitions[1].Success);
-			Assert.AreEqual("Rover can't move further because the position 5, 10 occupied by other rover!", result.RoverPostitions[1].StatusMessage);
-			Assert.AreEqual(6, result.RoverPostitions[1].PositionX);
-			Assert.AreEqual(10, result.RoverPostitions[1].PositionY);
-			Assert.AreEqual("W", result.RoverPostitions[1].Direction);
+			Assert.IsFalse(result.RoverPositions[1].Success);
+			Assert.AreEqual("Rover can't move further because the position 5, 10 occupied by other rover!", result.RoverPositions[1].StatusMessage);
+			Assert.AreEqual(6, result.RoverPositions[1].PositionX);
+			Assert.AreEqual(10, result.RoverPositions[1].PositionY);
+			Assert.AreEqual("W", result.RoverPositions[1].Direction);
 		}
 
 		[TestMethod]
@@ -224,25 +224,25 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(3, result.RoverPostitions.Count);
+			Assert.AreEqual(3, result.RoverPositions.Count);
 
-			Assert.IsFalse(result.RoverPostitions[0].Success);
-			Assert.AreEqual("Rover can't move further because the position 2, 4 occupied by other rover!", result.RoverPostitions[0].StatusMessage);
-			Assert.AreEqual(2, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(3, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("N", result.RoverPostitions[0].Direction);
+			Assert.IsFalse(result.RoverPositions[0].Success);
+			Assert.AreEqual("Rover can't move further because the position 2, 4 occupied by other rover!", result.RoverPositions[0].StatusMessage);
+			Assert.AreEqual(2, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(3, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("N", result.RoverPositions[0].Direction);
 
-			Assert.IsFalse(result.RoverPostitions[1].Success);
-			Assert.AreEqual("Rover can't move further because the position 2, 3 occupied by other rover!", result.RoverPostitions[1].StatusMessage);
-			Assert.AreEqual(1, result.RoverPostitions[1].PositionX);
-			Assert.AreEqual(3, result.RoverPostitions[1].PositionY);
-			Assert.AreEqual("E", result.RoverPostitions[1].Direction);
+			Assert.IsFalse(result.RoverPositions[1].Success);
+			Assert.AreEqual("Rover can't move further because the position 2, 3 occupied by other rover!", result.RoverPositions[1].StatusMessage);
+			Assert.AreEqual(1, result.RoverPositions[1].PositionX);
+			Assert.AreEqual(3, result.RoverPositions[1].PositionY);
+			Assert.AreEqual("E", result.RoverPositions[1].Direction);
 
-			Assert.IsTrue(result.RoverPostitions[2].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[2].StatusMessage));
-			Assert.AreEqual(4, result.RoverPostitions[2].PositionX);
-			Assert.AreEqual(5, result.RoverPostitions[2].PositionY);
-			Assert.AreEqual("W", result.RoverPostitions[2].Direction);
+			Assert.IsTrue(result.RoverPositions[2].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[2].StatusMessage));
+			Assert.AreEqual(4, result.RoverPositions[2].PositionX);
+			Assert.AreEqual(5, result.RoverPositions[2].PositionY);
+			Assert.AreEqual("W", result.RoverPositions[2].Direction);
 		}
 
 		[TestMethod]
@@ -271,13 +271,13 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(1, result.RoverPostitions.Count);
+			Assert.AreEqual(1, result.RoverPositions.Count);
 
-			Assert.IsTrue(result.RoverPostitions[0].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[0].StatusMessage));
-			Assert.AreEqual(0, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(0, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("S", result.RoverPostitions[0].Direction);
+			Assert.IsTrue(result.RoverPositions[0].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[0].StatusMessage));
+			Assert.AreEqual(0, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(0, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("S", result.RoverPositions[0].Direction);
 		}
 
 		[TestMethod]
@@ -366,13 +366,13 @@ namespace MarsRovers.Test
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
 			//Assert
-			Assert.AreEqual(1, result.RoverPostitions.Count);
+			Assert.AreEqual(1, result.RoverPositions.Count);
 
-			Assert.IsTrue(result.RoverPostitions[0].Success);
-			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPostitions[0].StatusMessage));
-			Assert.AreEqual(3, result.RoverPostitions[0].PositionX);
-			Assert.AreEqual(0, result.RoverPostitions[0].PositionY);
-			Assert.AreEqual("W", result.RoverPostitions[0].Direction);
+			Assert.IsTrue(result.RoverPositions[0].Success);
+			Assert.IsTrue(string.IsNullOrEmpty(result.RoverPositions[0].StatusMessage));
+			Assert.AreEqual(3, result.RoverPositions[0].PositionX);
+			Assert.AreEqual(0, result.RoverPositions[0].PositionY);
+			Assert.AreEqual("W", result.RoverPositions[0].Direction);
 		}
 	}
 }
