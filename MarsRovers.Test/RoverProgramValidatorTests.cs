@@ -14,6 +14,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void Validate_AllCorrectValuesModel_Success()
 		{
+			// Arrange
 			var validator = new RoverProgramValidator();
 			var model = new RoverProgramModel()
 			{
@@ -23,14 +24,17 @@ namespace MarsRovers.Test
 				Commands = "MLRRMmlMM"
 			};
 
+			// Act
 			var validationResult = validator.ValidateModelIfNotNull(model);
 
+			// Assert
 			Assert.IsTrue(validationResult.IsValid);
 		}
 
 		[TestMethod]
 		public void Validate_AllIncorrectValuesModel_Fail()
 		{
+			// Arrange
 			var validator = new RoverProgramValidator();
 			var model = new RoverProgramModel()
 			{
@@ -40,8 +44,10 @@ namespace MarsRovers.Test
 				Commands = "MLRRmmlMhMD"
 			};
 
+			// Act
 			var validationResult = validator.ValidateModelIfNotNull(model);
 
+			// Assert
 			Assert.IsFalse(validationResult.IsValid);
 			Assert.AreEqual(5, validationResult.Errors.Count);
 

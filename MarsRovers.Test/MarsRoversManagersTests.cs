@@ -17,7 +17,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_TwoValidRoversData_Success()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -43,10 +43,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(2, result.RoverPositions.Count);
 
 			Assert.IsTrue(result.RoverPositions[0].Success);
@@ -65,7 +65,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_MissPlateuAndSamePlaceAndTwoValidRovers_TwoSuccesseses()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -105,10 +105,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(4, result.RoverPositions.Count);
 
 			Assert.IsFalse(result.RoverPositions[0].Success);
@@ -139,7 +139,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_MoveTooFarAndCollision_Unsuccessfull()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -165,10 +165,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(2, result.RoverPositions.Count);
 
 			Assert.IsFalse(result.RoverPositions[0].Success);
@@ -187,7 +187,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_CollisionLastAndCollisionFirstAndValid_OneSuccess()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -220,10 +220,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(3, result.RoverPositions.Count);
 
 			Assert.IsFalse(result.RoverPositions[0].Success);
@@ -248,7 +248,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_MinimalValues_Success()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -267,10 +267,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(1, result.RoverPositions.Count);
 
 			Assert.IsTrue(result.RoverPositions[0].Success);
@@ -283,7 +283,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_IncorrectDirection_ExceptionThrown()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -302,7 +302,7 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act => Assert
+			// Act => Assert
 			var ex = Assert.ThrowsException<MarsRoversValidationException>(() => marsRoverManager.CalculateRoversPosition(model));
 
 			Assert.AreEqual("Invalid rover direction F", ex.Message);
@@ -313,7 +313,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_IncorrectCommand_ExceptionThrown()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -332,7 +332,7 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act => Assert
+			// Act => Assert
 			var ex = Assert.ThrowsException<MarsRoversValidationException>(() => marsRoverManager.CalculateRoversPosition(model));
 
 			Assert.AreEqual("Invalid rover command K", ex.Message);
@@ -343,7 +343,7 @@ namespace MarsRovers.Test
 		[TestMethod]
 		public void CalculateRoversPosition_LowerCaseValues_Success()
 		{
-			//Arrange
+			// Arrange
 			var marsRoverManager = new MarsRoversManager(_logger.Object);
 
 			MarsRoversModel model = new MarsRoversModel()
@@ -362,10 +362,10 @@ namespace MarsRovers.Test
 				}
 			};
 
-			//Act
+			// Act
 			var result = marsRoverManager.CalculateRoversPosition(model);
 
-			//Assert
+			// Assert
 			Assert.AreEqual(1, result.RoverPositions.Count);
 
 			Assert.IsTrue(result.RoverPositions[0].Success);
