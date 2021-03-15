@@ -34,6 +34,8 @@ namespace MarsRovers
 			});
 
 			services.AddControllers();
+
+			services.AddSwaggerGen();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -51,6 +53,14 @@ namespace MarsRovers
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
+
+			app.UseSwagger();
+
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mars Rover API V1");
+				c.RoutePrefix = string.Empty;
+			});
 
 			app.UseRouting();
 
